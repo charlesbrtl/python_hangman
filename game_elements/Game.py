@@ -1,4 +1,4 @@
-from word import Word
+from game_elements.word import Word
 
 
 class Game(object):
