@@ -6,6 +6,7 @@ class Word(object):
         self.characters = dict()
         self.number_of_guessed_letters = 0
         self.guess = ['_']*int(self.length)
+
         for i in range(self.length):
 
             if self.characters.get(hangman_word[i]) is None:
