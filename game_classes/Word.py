@@ -15,25 +15,21 @@ class Word(object):
             else:
                 self.characters[hangman_word[i]].append(i)
 
+        if self.has_letter(' '):
+            self.update_guess(' ')
+
     def has_letter(self, letter):
         return self.characters.get(letter) is not None
 
     def update_guess(self, letter):
         try:
-            self.number_of_guessed_letters += int(len(self.characters[letter]))
+
             for i in self.characters[letter]:
                 self.guess[i] = letter
+
+            self.number_of_guessed_letters += int(len(self.characters[letter]))
         except KeyError:
             print("unexpected error")
 
     def is_guessed(self):
         return self.length == self.number_of_guessed_letters
-
-
-
-other = Word("uuuuuuu")
-print(other.has_letter('z'))
-other.update_guess('u')
-print(other.guess)
-print(other.number_of_guessed_letters)
-print(other.is_guessed())
